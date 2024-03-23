@@ -1,8 +1,8 @@
 # simplenetfilt
 
-This is a simple project to disable outside network access for linux programs (primarily developed for usage with wine). It optionally allows loopback (`localhost` / `127.0.0.1``) and local network access (192.168.\*.\*, 10.\*.\*.\*, \*.local).
+This is a simple project to disable outside network access for linux programs (primarily developed for usage with wine). It optionally allows loopback (`localhost` / `127.0.0.1`) and local network access (192.168.\*.\*, 10.\*.\*.\*, \*.local).
 
-This was created out of a need to run some programs under wine without outside network access. Loopback was needed for some IPC work the programs required. After spending days wresting with `firejail`, X11, and `iptables`, I gave up and decided to write this.
+This was created out of a need to run some programs under wine without outside network access. Loopback was needed for some IPC work the programs required. After spending days wrestling with `firejail`, X11, and `iptables`, I gave up and decided to write this.
 
 ## Current limitations
 
