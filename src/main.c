@@ -90,6 +90,7 @@ static int _snf_ok_addr(const struct sockaddr* addr) {
     debug("ok_addr: %d\n", in->sin_addr.s_addr);
 
     if (_snf_loopback_allowed() && in->sin_addr.s_addr == LOOPBACK_IN) {
+        // FIXME: 127.*.*.* is loopback
         return 1;
     }
 

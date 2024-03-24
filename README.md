@@ -8,7 +8,7 @@ This was created out of a need to run some programs under wine without outside n
 
  * Only outgoing connections are filtered.
  * IPv6 isn't supported. Currently it blocks all outgoing IPv6 connections.
- * Only tested under wine and a few basic programs (curl, ping, firefox). Leaks may exist.
+ * Only tested under wine and a few basic programs (curl, ping, firefox). Leaks may exist for other software.
  * No whitelist/blacklist.
 
 Please open an issue if these limitations cause a problem for you.
