@@ -42,7 +42,7 @@ Note that when using the manual method, if it has been installed to `/usr/local/
 
 ### Configuration
 
-The following boolean properties can be configured:
+The following environment variables can be configured:
 
  * `SIMPLENETFILT_ALLOW_LOCALHOST` - Allows `localhost` / `127.0.0.1` access. Default: `true`
  * `SIMPLENETFILT_ALLOW_LOCALNET` - Allows local network access. Default: `false`
