@@ -7,15 +7,18 @@ libexists() {
     ld.so --list "$1" >/dev/null 2>&1
 }
 
-# use local paths if available
-DIR0="`dirname "$0"`"
-if [ -f "$DIR0/lib/libsimplenetfilt.so" ]; then
-    SIMPLENONET_LIB="$DIR0/"'$LIB/libsimplenetfilt.so'
-elif [ -f "$DIR0/../lib/libsimplenetfilt.so" ]; then
-    DIR0P="`readlink -f "$DIR0/.."`"
-    SIMPLENONET_LIB="$DIR0P/"'$LIB/libsimplenetfilt.so'
-elif ! libexists "$SIMPLENONET_LIB"; then
-    echo "Error: $SIMPLENONET_LIB can't be loaded" >&2
+if ! libexists "$SIMPLENONET_LIB"; then
+    # try relative paths
+    # $LIB under debian expands to i386-linux-gnu or x86_64-linux-gnu
+    DIR0="`dirname "$0"`"
+    if [ -f "$DIR0/lib/libsimplenetfilt.so" ]; then
+        SIMPLENONET_LIB="$DIR0/"'$LIB/libsimplenetfilt.so'
+    elif [ -f "$DIR0/../lib/libsimplenetfilt.so" ]; then
+        DIR0P="`readlink -f "$DIR0/.."`"
+        SIMPLENONET_LIB="$DIR0P/"'$LIB/libsimplenetfilt.so'
+    else
+        echo "Error: $SIMPLENONET_LIB can't be loaded" >&2
+    fi
 fi
 
 if [ "$#" -lt 1 ]; then
